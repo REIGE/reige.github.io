@@ -10,7 +10,7 @@
     
     <title>
         
-            Hello World | 
+            双进程守护实现杀不死的进程 | 
         
         Hexo
     </title>
@@ -58,7 +58,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hello World | Hexo">
+    <meta property="og:title" content="双进程守护实现杀不死的进程 | Hexo">
     <meta property="og:description" content="null">
     
 
@@ -247,7 +247,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-number">1.</span> <span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-new-post"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Create a new post</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Run-server"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Run server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Generate-static-files"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Generate static files</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何开启两个进程"><span class="post-toc-number">1.</span> <span class="post-toc-text">如何开启两个进程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#定义aidl"><span class="post-toc-number">2.</span> <span class="post-toc-text">定义aidl</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#定义两个Service"><span class="post-toc-number">3.</span> <span class="post-toc-text">定义两个Service</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最后启动他们"><span class="post-toc-number">4.</span> <span class="post-toc-text">最后启动他们</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#效果图"><span class="post-toc-number">5.</span> <span class="post-toc-text">效果图</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -271,20 +271,11 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script>
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(material-19.png)">
     
             <p class="article-headline-p">
-                Hello World
+                双进程守护实现杀不死的进程
             </p>
         </div>
 
@@ -303,7 +294,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>reige</strong>
-        <span>4月 24, 2017</span>
+        <span>4月 30, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -343,7 +334,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Hello World&url=http://yoursite.com//2017/04/24/hello-world/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=双进程守护实现杀不死的进程&url=http://yoursite.com//2017/04/30/双进程守护实现杀不死的进程/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -352,7 +343,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Hello World&url=http://yoursite.com//2017/04/24/hello-world/index.html&via=reige" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=双进程守护实现杀不死的进程&url=http://yoursite.com//2017/04/30/双进程守护实现杀不死的进程/index.html&via=reige" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -361,7 +352,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com//2017/04/24/hello-world/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com//2017/04/30/双进程守护实现杀不死的进程/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -370,7 +361,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2017/04/24/hello-world/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2017/04/30/双进程守护实现杀不死的进程/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -394,15 +385,29 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p><img src="/2017/04/30/双进程守护实现杀不死的进程/material-19.png" alt="logo"></p>
+<h1 id="如何开启两个进程"><a href="#如何开启两个进程" class="headerlink" title="如何开启两个进程"></a>如何开启两个进程</h1><ul>
+<li>一个进程干掉 他的服务全部收掉 百度了很多 有人说在onDestory中重启服务 但是试过发现还是太天真</li>
+<li><p>所以我们就用两个进程来解决这间事情 一个进程被干掉 另一个马上将他重启 这主要就涉及到 进程间通信ipc-（interprocess communication） aidl-(Android Interface Definition Language</p>
+</li>
+<li><p>那么怎么再搞一个进程呢？ 其实给他起个名字就行了 如下带码块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;service android:name=&quot;.LocalService&quot;/&gt;</div><div class="line">&lt;service android:name=&quot;.RemoteService&quot; android:process=&quot;.remoteservice&quot;/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>而且我们知道一个进程分配的内存是有限的，很多大厂的app都是两个进程。</p>
+<h1 id="定义aidl"><a href="#定义aidl" class="headerlink" title="定义aidl"></a>定义aidl</h1></li>
+<li>为了完成进程间的通信 我们需要定义定义aidl<br>KeepAliveService .aidl<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">package com.reige.keepaliveservice;</div><div class="line">interface KeepAliveService &#123;</div><div class="line">    String getServiceName();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="定义两个Service"><a href="#定义两个Service" class="headerlink" title="定义两个Service"></a>定义两个Service</h1><ul>
+<li>这里就很熟悉了 只是需要定义一个内部类MyBinder 继承 KeepAliveService.Stub<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">public class LocalService extends Service &#123;</div><div class="line">    private MyBinder binder;</div><div class="line">    private MyConn conn;</div><div class="line"></div><div class="line">    @Nullable</div><div class="line">    @Override</div><div class="line">    public IBinder onBind(Intent intent) &#123;</div><div class="line">        return binder;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onCreate() &#123;</div><div class="line">        super.onCreate();</div><div class="line">        binder = new MyBinder();</div><div class="line">        if (conn == null) conn = new MyConn();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onStart(Intent intent, int startId) &#123;</div><div class="line">        super.onStart(intent, startId);</div><div class="line">        LocalService.this.bindService(new Intent(LocalService.this, RemoteService.class), conn, Context.BIND_IMPORTANT);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    class MyBinder extends KeepAliveService.Stub &#123;</div><div class="line">        @Override</div><div class="line">        public String getServiceName() throws RemoteException &#123;</div><div class="line">            return &quot;LocalService&quot;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    class MyConn implements ServiceConnection &#123;</div><div class="line">        @Override</div><div class="line">        public void onServiceConnected(ComponentName name, IBinder service) &#123;</div><div class="line">        &#125;</div><div class="line">        /*连接发生异常 正常关闭不走该方法*/</div><div class="line">        @Override</div><div class="line">        public void onServiceDisconnected(ComponentName name) &#123;</div><div class="line">            LocalService.this.startService(new Intent(LocalService.this, RemoteService.class));</div><div class="line">            LocalService.this.bindService(new Intent(LocalService.this, RemoteService.class),</div><div class="line">                    conn, Context.BIND_IMPORTANT);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">public class RemoteService extends Service &#123;</div><div class="line">    private MyBinder binder;</div><div class="line">    private MyConn conn;</div><div class="line"></div><div class="line">    @Nullable</div><div class="line">    @Override</div><div class="line">    public IBinder onBind(Intent intent) &#123;</div><div class="line">        return binder;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onCreate() &#123;</div><div class="line">        super.onCreate();</div><div class="line">        binder = new MyBinder();</div><div class="line">        if (conn == null) conn = new MyConn();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onStart(Intent intent, int startId) &#123;</div><div class="line">        super.onStart(intent, startId);</div><div class="line">        RemoteService.this.bindService(new Intent(RemoteService.this, LocalService.class), conn, Context.BIND_IMPORTANT);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    class MyBinder extends KeepAliveService.Stub &#123;</div><div class="line">        @Override</div><div class="line">        public String getServiceName() throws RemoteException &#123;</div><div class="line">            return &quot;RemoteService&quot;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    class MyConn implements ServiceConnection &#123;</div><div class="line">        @Override</div><div class="line">        public void onServiceConnected(ComponentName name, IBinder service) &#123;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        /*连接发生异常 正常关闭不走该方法*/</div><div class="line">        @Override</div><div class="line">        public void onServiceDisconnected(ComponentName name) &#123;</div><div class="line">            RemoteService.this.startService(new Intent(RemoteService.this, LocalService.class));</div><div class="line">            RemoteService.this.bindService(new Intent(RemoteService.this, LocalService.class), conn, Context.BIND_IMPORTANT);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="最后启动他们"><a href="#最后启动他们" class="headerlink" title="最后启动他们"></a>最后启动他们</h1><ul>
+<li>在MainAcivity onCreat方法中中启动他们<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">this.startService(new Intent(MainActivity.this,LocalService.class));</div><div class="line">this.startService(new Intent(MainActivity.this,RemoteService.class));</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p>然后我们打开手机应用详情就能看到跑起来的两个进程和两个服务了，试着去停止他们，你会发现他们已经不听我们的了。当然，为了保险，做到真正的不被杀死，我们还可以监听广播来自动启动我们的应用，比如解锁电量变化等等<br><img src="http://img.blog.csdn.net/20170430175421610?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUkVJR0U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 
     
 
@@ -429,19 +434,19 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
+        <a href="/2017/04/24/hello-world/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
-    
-        <a href="/2017/04/30/双进程守护实现杀不死的进程/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
     
 </nav>
 
