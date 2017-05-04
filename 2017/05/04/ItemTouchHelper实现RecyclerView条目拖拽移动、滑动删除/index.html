@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.3 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            ItemTouchHelperʵ��RecyclerView��Ŀ��ק�ƶ�������ɾ�� | 
+        
+        Hexo
+    </title>
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="reige">
+    <meta name="description" content="null">
+    <meta name="keywords" content="null">
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hexo">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="ItemTouchHelperʵ��RecyclerView��Ŀ��ק�ƶ�������ɾ�� | Hexo">
+    <meta property="og:description" content="null">
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS & jQuery -->
+    
+        <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/queue.js"></script>
+    
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ItemTouchHelper"><span class="post-toc-number">1.</span> <span class="post-toc-text">ItemTouchHelper</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ItemTouchHelper-Callback"><span class="post-toc-number">2.</span> <span class="post-toc-text">ItemTouchHelper.Callback</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#����һ����-MyItemTouchHelperCallback-extends-ItemTouchHelper-Callback-��д���k���"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">����һ���� MyItemTouchHelperCallback extends ItemTouchHelper.Callback ��д���ķ���</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#��һ��������������"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">��һ��������������</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ItemTouchMoveListener"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">ItemTouchMoveListener</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MyAdapter"><span class="post-toc-number">2.0.4.</span> <span class="post-toc-text">MyAdapter</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#StartDragListener"><span class="post-toc-number">3.</span> <span class="post-toc-text">StartDragListener</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MainActivity"><span class="post-toc-number">4.</span> <span class="post-toc-text">MainActivity</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                ItemTouchHelperʵ��RecyclerView��Ŀ��ק�ƶ�������ɾ��
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>reige</strong>
+        <span>5月 04, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=ItemTouchHelperʵ��RecyclerView��Ŀ��ק�ƶ�������ɾ��&url=http://yoursite.com//2017/05/04/ItemTouchHelper实现RecyclerView条目拖拽移动、滑动删除/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=ItemTouchHelperʵ��RecyclerView��Ŀ��ק�ƶ�������ɾ��&url=http://yoursite.com//2017/05/04/ItemTouchHelper实现RecyclerView条目拖拽移动、滑动删除/index.html&via=reige" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com//2017/05/04/ItemTouchHelper实现RecyclerView条目拖拽移动、滑动删除/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2017/05/04/ItemTouchHelper实现RecyclerView条目拖拽移动、滑动删除/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><img src="http://img.blog.csdn.net/20170504220846985?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUkVJR0U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="����дͼƬ����"></p>
+<h1 id="ItemTouchHelper"><a href="#ItemTouchHelper" class="headerlink" title="ItemTouchHelper"></a>ItemTouchHelper</h1><ul>
+<li>��������MainActivity onCreat()�еĴ���<br>������Ҫ�õ�ItemTouchHelper,��new��ʱ����������Ҫһ��callback �����Ǿ�Ҫ������callback�������¡�<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">rvContent.setLayoutManager(new LinearLayoutManager(this));</div><div class="line">        MyAdapter adapter = new MyAdapter(list, this);</div><div class="line">        rvContent.setAdapter(adapter);</div><div class="line">        MyItemTouchHelperCallback callback = new MyItemTouchHelperCallback(adapter);</div><div class="line">        itemTouchHelper = new ItemTouchHelper(callback);</div><div class="line">        itemTouchHelper.attachToRecyclerView(rvContent);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="ItemTouchHelper-Callback"><a href="#ItemTouchHelper-Callback" class="headerlink" title="ItemTouchHelper.Callback"></a>ItemTouchHelper.Callback</h1><h3 id="����һ����-MyItemTouchHelperCallback-extends-ItemTouchHelper-Callback-��д���k���"><a href="#����һ����-MyItemTouchHelperCallback-extends-ItemTouchHelper-Callback-��д���k���" class="headerlink" title="����һ���� MyItemTouchHelperCallback extends ItemTouchHelper.Callback ��д���ķ���"></a>����һ���� MyItemTouchHelperCallback extends ItemTouchHelper.Callback ��д���ķ���</h3><ul>
+<li><p>��ȡ�ƶ��ķ��� dragFlags���϶��ķ��� swipeFlags�ǻ����ķ���</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">   public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) &#123;</div><div class="line">       int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;</div><div class="line">       int swipeFlags = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;</div><div class="line">       return makeMovementFlags(dragFlags, swipeFlags);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>�ƶ�ʱ�Ļص�</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,</div><div class="line">                          RecyclerView.ViewHolder target)</div></pre></td></tr></table></figure>
+</li>
+<li><p>�໬ʱ�Ļص�</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction)</div></pre></td></tr></table></figure>
+</li>
+<li><p>itemѡ��״̬�����ı�</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState)</div></pre></td></tr></table></figure>
+</li>
+<li><p>ʵʱ����child�ķ���</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder</div><div class="line">            viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive)</div></pre></td></tr></table></figure>
+</li>
+<li><p>ˢ��view��ֹ ������view��ʱ�����ִ�λ</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)</div></pre></td></tr></table></figure>
+</li>
+<li><p>�Ƿ����ó�����ק</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public boolean isLongPressDragEnabled()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="��һ��������������"><a href="#��һ��������������" class="headerlink" title="��һ��������������"></a>��һ��������������</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">public class MyItemTouchHelperCallback extends ItemTouchHelper.Callback &#123;</div><div class="line">    private ItemTouchMoveListener itemTouchMoveListener;</div><div class="line">    public MyItemTouchHelperCallback(ItemTouchMoveListener itemTouchMoveListener) &#123;</div><div class="line">        this.itemTouchMoveListener=itemTouchMoveListener;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) &#123;</div><div class="line">        int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;</div><div class="line">        int swipeFlags = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;</div><div class="line">        return makeMovementFlags(dragFlags, swipeFlags);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,</div><div class="line">                          RecyclerView.ViewHolder target) &#123;</div><div class="line">        if(viewHolder.getItemViewType()!=viewHolder.getItemViewType())&#123;</div><div class="line">            return false;//��ͬ��Ŀ���Ͳ����ƶ�</div><div class="line">        &#125;</div><div class="line">        boolean result = itemTouchMoveListener.onItemMove(viewHolder.getAdapterPosition(), target</div><div class="line">                .getAdapterPosition());</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /* �໬ʱ�Ļص�*/</div><div class="line">    @Override</div><div class="line">    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) &#123;</div><div class="line">        itemTouchMoveListener.onItemRemove(viewHolder.getAdapterPosition());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) &#123;</div><div class="line">        super.onSelectedChanged(viewHolder, actionState);</div><div class="line">        if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) &#123;</div><div class="line">            viewHolder.itemView.setAlpha(0.5f);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder</div><div class="line">            viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) &#123;</div><div class="line">        if(actionState==ItemTouchHelper.ACTION_STATE_SWIPE)&#123;</div><div class="line">            float percentage = 1-Math.abs(dX)/viewHolder.itemView.getWidth();</div><div class="line">            viewHolder.itemView.setScaleX(percentage);</div><div class="line">            viewHolder.itemView.setScaleY(percentage);</div><div class="line">        &#125;</div><div class="line">        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) &#123;</div><div class="line">        viewHolder.itemView.setAlpha(1.0f);</div><div class="line">        viewHolder.itemView.setScaleX(1.0f);</div><div class="line">        viewHolder.itemView.setScaleY(1.0f);</div><div class="line">        super.clearView(recyclerView, viewHolder);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /* �Ƿ����������϶� */</div><div class="line">    @Override</div><div class="line">    public boolean isLongPressDragEnabled() &#123;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="ItemTouchMoveListener"><a href="#ItemTouchMoveListener" class="headerlink" title="ItemTouchMoveListener"></a>ItemTouchMoveListener</h3><ul>
+<li>���Կ�������һ�������õ��� ItemTouchMoveListener ���Ǹ�ʲô���أ�</li>
+<li>����������һ�������ӿ�<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public interface ItemTouchMoveListener &#123;</div><div class="line">	boolean onItemMove(int fromPosition, int toPosition);</div><div class="line">	boolean onItemRemove(int position);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>���Կ���,�ӿ��о��������� onItemMove��item�ƶ�ʱ������ʱ��ִ��<br>onItemRemove��item�Ƴ���ʱ��ִ�С�<br>����������������adapter�ķ���������������adapterʵ�������ӿڣ���callback���ʵ���ʱ����������<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">notifyItemMoved(fromPosition, toPosition);</div><div class="line">notifyItemRemoved(position);</div></pre></td></tr></table></figure></p>
+<h3 id="MyAdapter"><a href="#MyAdapter" class="headerlink" title="MyAdapter"></a>MyAdapter</h3><ul>
+<li>������������recyclerview������ ���Կ���������ʵ������ǰ�������Ǹ�ItemTouchMoveListener<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">class MyAdapter extends RecyclerView.Adapter&lt;MyAdapter.ViewHolder&gt; implements ItemTouchMoveListener&#123;</div><div class="line">    private List&lt;String&gt; list;</div><div class="line">    private StartDragListener dragListener;</div><div class="line"></div><div class="line"></div><div class="line">    public MyAdapter(List&lt;String&gt; list,StartDragListener dragListener) &#123;</div><div class="line">        super();</div><div class="line">        this.list = list;</div><div class="line">        this.dragListener = dragListener;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) &#123;</div><div class="line">        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem, parent, false);</div><div class="line">        return new ViewHolder(view);</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void onBindViewHolder(ViewHolder holder, int position) &#123;</div><div class="line">        holder.setData(holder,position);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public int getItemCount() &#123;</div><div class="line">        return list.size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    class ViewHolder extends RecyclerView.ViewHolder &#123;</div><div class="line">        private TextView tvTitle;</div><div class="line">        private ImageView ivIcon;</div><div class="line"></div><div class="line">        public ViewHolder(View itemView) &#123;</div><div class="line">            super(itemView);</div><div class="line">            initView(itemView);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        private void initView(View itemView) &#123;</div><div class="line">            tvTitle = (TextView) itemView.findViewById(R.id.tv_title);</div><div class="line">            ivIcon = (ImageView) itemView.findViewById(R.id.iv_icon);</div><div class="line">        &#125;</div><div class="line">        void setData(final ViewHolder holder, int position) &#123;</div><div class="line">            tvTitle.setText(list.get(position));</div><div class="line">            ivIcon.setOnTouchListener(new View.OnTouchListener() &#123;</div><div class="line">                @Override</div><div class="line">                public boolean onTouch(View v, MotionEvent event) &#123;</div><div class="line">                    if(event.getAction()==MotionEvent.ACTION_DOWN)&#123;</div><div class="line">                        dragListener.onStartDrag(holder);</div><div class="line">                    &#125;</div><div class="line">                    return false;</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean onItemMove(int fromPosition, int toPosition) &#123;</div><div class="line">        Collections.swap(list,fromPosition,toPosition);//��������</div><div class="line">        notifyItemMoved(fromPosition, toPosition);</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean onItemRemove(int position) &#123;</div><div class="line">        list.remove(position);</div><div class="line">        notifyItemRemoved(position);</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="StartDragListener"><a href="#StartDragListener" class="headerlink" title="StartDragListener"></a>StartDragListener</h1><ul>
+<li>���������У������õ���StartDragListener������ivIcon��������OnTouchListener��ʹ�������ڴ���ʱ������Ӧ�ķ�����</li>
+<li>����ʲô��������ʹ��Ŀ�϶��ء����Ƿ���ItemTouchHelper���и�startDrag���������Ծ���Ҫ����������ʵ��StartDragListener�ӿڡ���������������ʵ����Ӧ�ķ�����<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public interface StartDragListener &#123;</div><div class="line">	public void onStartDrag(ViewHolder viewHolder);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="MainActivity"><a href="#MainActivity" class="headerlink" title="MainActivity"></a>MainActivity</h1><ul>
+<li>��������ûʲô˵����<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends AppCompatActivity implements StartDragListener&#123;</div><div class="line">    private RecyclerView rvContent;</div><div class="line">    private ItemTouchHelper itemTouchHelper;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        initView();</div><div class="line">        List&lt;String&gt; list = new ArrayList&lt;&gt;();</div><div class="line">        for (int i = 0; i &lt; 20; i++) &#123;</div><div class="line">            list.add(&quot;��&quot; + i + &quot;������&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        rvContent.setLayoutManager(new LinearLayoutManager(this));</div><div class="line">        MyAdapter adapter = new MyAdapter(list, this);</div><div class="line">        rvContent.setAdapter(adapter);</div><div class="line">        MyItemTouchHelperCallback callback = new MyItemTouchHelperCallback(adapter);</div><div class="line">        itemTouchHelper = new ItemTouchHelper(callback);</div><div class="line">        itemTouchHelper.attachToRecyclerView(rvContent);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void initView() &#123;</div><div class="line">        rvContent = (RecyclerView) findViewById(R.id.rv_content);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onStartDrag(RecyclerView.ViewHolder viewHolder) &#123;</div><div class="line">        itemTouchHelper.startDrag(viewHolder);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/04/30/双进程守护实现杀不死的进程/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="reige's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        407601459@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.svg);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-facebook.svg);">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-gplus.svg);">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/REIGE" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;Hexo
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+    <script src="/js/lazyload.min.js"></script>
+    <script src="/js/js.min.js"></script>
+
+
+
+    <script src="/js/nprogress.js"></script>
+
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script>
+    <!-- Offer LazyLoad -->
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    <!-- Start Queue -->
+    $(document).ready(function(){
+        setTimeout(function(){
+            setInterval(function(){
+                queue.execNext();
+            },200);
+        },3000);
+    });
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
